@@ -1,14 +1,17 @@
-from typing import Optional
+from typing import Optional, Union
 
 import aiohttp
 import async_timeout
+from aiohttp import JsonPayload
+
+from fastapi_gateway.utils.form import CustomFormData
 
 
 async def make_request(
     url: str,
     method: str,
     query: Optional[dict] = None,
-    data: Optional[dict] = None,
+    data: Union[CustomFormData, JsonPayload] = None,
     timeout: int = 60,
 ):
 
