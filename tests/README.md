@@ -1,8 +1,14 @@
 ## - How to run tests?
 
+Cloning repository.
+```
+git clone https://github.com/dotX12/fastapi-gateway.git
+cd fastapi-gateway
+cd tests
+```
+
 To begin with, we raise our test microservice and the gateway.
 ```
-cd tests
 uvicorn "fastapi_gateway_service.main:app" --host "gateway.localtest.me" --port 8001
 uvicorn "fastapi_microservice.main:app" --host "microservice.localtest.me" --port 8002
 ```
