@@ -73,7 +73,10 @@ async def form_data(username: str = Form(...), password: str = Form(...)):
     tags=['Form', 'File'],
 )
 async def upload_file(file: UploadFile = File(...)):
-    return {"filename": file.filename}
+    return {
+        "filename": file.filename,
+        "file_content_type": file.content_type
+    }
 
 
 @app.post(
