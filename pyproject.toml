@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "fastapi_gateway"
+version = "0.0.1"
+description = "FastAPI gateway for microservices."
+authors = ["dotX12"]
+license = "MIT License"
+keywords = ["python", "fastapi", "gateway", "api", "microservice", "microservices", "server side discovery"]
+readme = "README.md"
+homepage = "https://github.com/dotX12/fastapi-gateway"
+repository = "https://github.com/dotX12/fastapi-gateway"
+include = [
+    "README.md",
+    "LICENSE"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+ujson = "^4.1.0"
+aiohttp = "^3.7.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "wheel>=0.36,<1.0", "poetry>=1.1,<2", "virtualenv==20.0.33"]
+build-backend = "poetry.core.masonry.api"
