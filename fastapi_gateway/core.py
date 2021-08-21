@@ -10,8 +10,12 @@ from starlette.routing import BaseRoute
 from .network import make_request
 from .utils.body import unzip_body_object
 from .utils.form import unzip_form_params
-from .utils.headers import inheritance_service_headers
 from .utils.query import unzip_query_params
+from .utils.request import create_request_data
+from .utils.headers import (
+    inheritance_service_headers,
+    generate_headers_for_microservice
+)
 
 
 def route(
@@ -150,10 +154,14 @@ def route(
                 necessary_params=form_params,
                 all_params=kwargs)
 
-            if request_form:
-                request_data = request_form
-            else:
-                request_data = request_body
+            request_headers = generate_headers_for_microservice(
+                headers=request.headers,
+            )
+
+            request_data = create_request_data(
+                form=request_form,
+                body=request_body,
+            )
 
             try:
                 resp_data, status_code_from_service, microservice_headers = await make_request(
@@ -161,6 +169,7 @@ def route(
                     method=scope_method,
                     data=request_data,
                     query=request_query,
+                    headers=request_headers,
                 )
 
             except ClientConnectorError:
