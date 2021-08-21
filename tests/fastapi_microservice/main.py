@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Form, UploadFile, File, Body
+from fastapi import FastAPI, Form, UploadFile, File, Body, Header
+from starlette.requests import Request
 from tests.fastapi_microservice.models import ExampleModel
 
 app = FastAPI(title='Microservice #1')
@@ -85,3 +86,10 @@ async def upload_file(file: UploadFile = File(...)):
 )
 async def form_and_upload_file(username: str = Form(...), password: str = Form(...), file: UploadFile = File(...)):
     return {"username": username, 'pwd': password, "filename": file.filename, "content_type": file.content_type}
+
+
+@app.get(
+    path='/v1/check_dependency_header'
+)
+async def check_dependency(request: Request):
+    return {'header': request.headers.get('x-api-key'), 'foo': 'bar'}

@@ -161,7 +161,7 @@ async def test_dependency_gateway_GET():
     async with AsyncClient(app=app, base_url=URL, headers=headers) as client:
         response_success = await client.get("/check_depends_header")
     assert response_success.status_code == 200
-    assert response_success.json() == [{"foo_key": "foo"}, {"foo_key": "bar"}]
+    assert response_success.json() == {'foo': 'bar', 'header': 'EXAMPLE_HEADER'}
 
     async with AsyncClient(app=app, base_url=URL) as client:
         response_bad = await client.get("/check_depends_header")

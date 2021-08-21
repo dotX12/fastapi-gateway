@@ -140,12 +140,12 @@ async def check_query_params_and_body(
     request_method=router1.get,
     service_url=SERVICE_URL,
     gateway_path='/check_depends_header',
-    service_path='/v1/list_model',
+    service_path='/v1/check_dependency_header',
     status_code=status.HTTP_200_OK,
+    tags=['Dependency'],
     dependencies=[
         Depends(check_api_key)
     ],
-    tags=['Dependency']
 )
 async def check_depends_header(
         request: Request,
