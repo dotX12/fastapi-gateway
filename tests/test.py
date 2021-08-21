@@ -120,12 +120,13 @@ async def test_query_params_GET():
 @pytest.mark.asyncio
 async def test_query_body_POST():
     async with AsyncClient(app=app, base_url=URL) as client:
-        query_params = {"query_int": 9991, "query_str": 'TemplateString!'}
-        body_params = {"example_int": 9888, "example_str": "foo_bar"}
+        example_query = {"query_int": 9991, "query_str": 'TemplateString!'}
+        example_body = {"example_int": 9888, "example_str": "foo_bar"}
+
         response = await client.post(
             "/query_and_body",
-            params=query_params,
-            json=body_params)
+            params=example_query,
+            json=example_body)
 
     assert response.status_code == 200
     assert response.json() == {
