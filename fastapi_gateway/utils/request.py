@@ -9,3 +9,13 @@ def create_dict_if_not(data: Optional[T] = None) -> Union[dict, T]:
     if data:
         return data
     return {}
+
+
+def create_request_data(
+        form: Optional[CustomFormData],
+        body: Optional[JsonPayload]
+) -> Optional[Union[CustomFormData, JsonPayload]]:
+
+    if form:
+        return form
+    return body
