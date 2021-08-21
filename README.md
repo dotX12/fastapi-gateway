@@ -34,9 +34,29 @@ from starlette.responses import Response
 from fastapi_gateway import route
 from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi import Depends
+from fastapi.security import APIKeyHeader
+from starlette import status
+from starlette.exceptions import HTTPException
 
 app = FastAPI(title='API Gateway')
 SERVICE_URL = "http://microservice.localtest.me:8002"
+
+API_KEY_NAME = "x-api-key"
+
+api_key_header = APIKeyHeader(
+    name=API_KEY_NAME,
+    auto_error=False
+)
+
+
+def check_api_key(key: str = Depends(api_key_header)):
+    if key:
+        return key
+    raise HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="You didn't pass the api key in the header! Header: x-api-key",
+    )
 
 
 class FooModel(BaseModel):
@@ -53,6 +73,9 @@ class FooModel(BaseModel):
     body_params=['test_body'],
     status_code=status.HTTP_200_OK,
     tags=['Query', 'Body', 'Path'],
+    dependencies=[
+        Depends(check_api_key)
+    ],
 )
 async def check_query_params_and_body(
         path: int, query_int: int, query_str: str,
