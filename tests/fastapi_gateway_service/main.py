@@ -124,15 +124,6 @@ async def check_query_params_and_body(
         request: Request,
         response: Response
 ):
-    """
-
-    :param path: сообщение
-    :param query_int: хуйныя
-    :param query_str:
-    :param test_body:
-    :param request:
-    :param response:
-    """
     pass
 
 
