@@ -19,6 +19,21 @@ Initially, this project was created for myself, I needed to implement identifica
 pip install fastapi_gateway
 ```
 
+## ❗️ Benchmark
+1.5k - 3k RPC.
+
+```
+gitshit@git ~ % wrk -t 4 -c 40 http://gateway.localtest.me:8003/gateway_endpoint/path_param/12
+Running 10s test @ http://gateway.localtest.me:8003/gateway_endpoint/path_param/12
+  4 threads and 40 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    30.11ms   33.65ms 312.55ms   95.98%
+    Req/Sec   395.03    218.80     0.89k    73.21%
+  15550 requests in 10.05s, 2.31MB read
+Requests/sec:   1547.81
+Transfer/sec:    235.81KB
+```
+
 ## 💻 Example
 
 <details> 
