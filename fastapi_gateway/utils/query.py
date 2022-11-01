@@ -13,8 +13,8 @@ async def serialize_query_content(key, value) -> dict:
 
 
 async def unzip_query_params(
-        all_params: Dict[str, Any],
-        necessary_params: Optional[List[str]] = None,
+    all_params: Dict[str, Any],
+    necessary_params: Optional[List[str]] = None,
 ) -> Optional[Dict[str, Any]]:
 
     if necessary_params:
@@ -25,5 +25,3 @@ async def unzip_query_params(
             response_query_params.update(serialized_dict)
         return response_query_params
     return None
-
-
