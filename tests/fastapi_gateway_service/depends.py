@@ -5,10 +5,7 @@ from starlette.exceptions import HTTPException
 
 API_KEY_NAME = "x-api-key"
 
-api_key_header = APIKeyHeader(
-    name=API_KEY_NAME,
-    auto_error=False
-)
+api_key_header = APIKeyHeader(name=API_KEY_NAME, auto_error=False)
 
 
 def check_api_key(key: str = Depends(api_key_header)):

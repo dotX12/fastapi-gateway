@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastapi_gateway"
-version = "0.0.2"
+version = "0.0.3"
 description = "FastAPI gateway for microservices."
 authors = ["dotX12"]
 license = "MIT License"
@@ -15,7 +15,7 @@ include = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-ujson = "^5.4.0"
+ujson = "^5.5.0"
 aiohttp = "^3.7.4"
 
 [build-system]

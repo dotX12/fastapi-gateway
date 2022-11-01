@@ -20,4 +20,3 @@ class FooModel(BaseModel):
 
 class FooList(BaseModel):
     foo_key: str
-
