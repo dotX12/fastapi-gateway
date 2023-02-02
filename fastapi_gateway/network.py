@@ -20,10 +20,10 @@ async def make_request(
     query = create_dict_if_not(data=query)
 
 #     async with async_timeout.timeout(delay=timeout):
-        async with aiohttp.ClientSession(headers=headers) as session:
-            async with session.request(
-                method=method, url=url, params=query, data=data
-            ) as response:
-                response_json = await response.json()
-                decoded_json = decode_json(data=response_json)
-                return decoded_json, response.status, response.headers
+    async with aiohttp.ClientSession(headers=headers) as session:
+        async with session.request(
+            method=method, url=url, params=query, data=data
+        ) as response:
+            response_json = await response.json()
+            decoded_json = decode_json(data=response_json)
+            return decoded_json, response.status, response.headers
