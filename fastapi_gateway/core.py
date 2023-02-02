@@ -48,6 +48,7 @@ def route(
     name: Optional[str] = None,
     callbacks: Optional[List[BaseRoute]] = None,
     openapi_extra: Optional[Dict[str, Any]] = None,
+    timeout: int = 60,
 ):
     """
 
@@ -178,6 +179,7 @@ def route(
                     data=request_data,
                     query=request_query,
                     headers=request_headers,
+                    timeout=timeout,
                 )
 
             except ClientConnectorError:
