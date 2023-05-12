@@ -12,7 +12,7 @@ from starlette import status
 from starlette.requests import Request
 from starlette.responses import Response
 
-from fastapi_gateway import route
+from fastapi_gateway_ultra import route
 from tests.fastapi_gateway_service.depends import check_api_key
 from tests.fastapi_gateway_service.models import FooList
 from tests.fastapi_gateway_service.models import FooModel

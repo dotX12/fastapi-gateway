@@ -7,7 +7,7 @@
 <img src="https://pepy.tech/badge/fastapi-gateway/month" alt="https://pepy.tech/project/fastapi-gateway">
 <img src="https://img.shields.io/github/license/dotX12/fastapi-gateway.svg" alt="https://github.com/dotX12/fastapi-gateway/blob/master/LICENSE">
 
-# ⚙️ fastapi-gateway is async single entry point for microservices.
+# ⚙️ fastapi-gateway-ultra is async single entry point for microservices.
 
 #### API Gateway performs many tasks: accepts, processes and distributes requests, controls traffic, monitors and controls access and security, caching, throttling.
 
@@ -16,7 +16,7 @@ Initially, this project was created for myself, I needed to implement identifica
 ## 💿 Installation
 
 ```
-pip install fastapi_gateway
+pip install fastapi-gateway-ultra
 ```
 
 ## ❗️ Benchmark
