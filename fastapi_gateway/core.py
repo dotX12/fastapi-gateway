@@ -1,9 +1,8 @@
 import functools
 from aiohttp import ContentTypeError, ClientConnectorError
 from fastapi import Request, Response, HTTPException, status, params
-from typing import List, Optional, Sequence, Dict, Union, Any, Type
+from typing import List, Optional, Sequence, Set, Dict, Union, Any, Type
 from fastapi.datastructures import Default
-from fastapi.encoders import SetIntStr, DictIntStrAny
 from starlette.responses import JSONResponse
 from starlette.routing import BaseRoute
 
@@ -16,6 +15,9 @@ from .utils.headers import (
     inheritance_service_headers,
     generate_headers_for_microservice,
 )
+
+SetIntStr = Set[Union[int, str]]
+DictIntStrAny = Dict[Union[int, str], Any]
 
 
 def route(
