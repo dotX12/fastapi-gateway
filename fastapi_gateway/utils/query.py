@@ -21,6 +21,10 @@ async def unzip_query_params(
         response_query_params = {}
         for key in necessary_params:
             value = all_params.get(key)
+
+            if value is None:
+                continue
+            
             serialized_dict = await serialize_query_content(key=key, value=value)
             response_query_params.update(serialized_dict)
         return response_query_params
